@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../out.js"></script>
+<script type="text/javascript">
+    
+    function windowObjDemo() {
+
+        var name = window.navigator.appName;
+        var version = window.navigator.appVersion;
+        var cName = window.navigator.appCodeName;
+        println(name + ":" + version + ":" + cName);
+
+    }
+    
+    function  windowObjDemo2() {
+        var pro = location.protocol;
+        var text = location.href;
+        println(text);
+        // println(pro);
+        // location.protocol = "http://www.bing.com";
+        //给href一个值，改变了地址栏的值，并对其值进行了http解析，还进行了连接访问
+        // location.href = "http://www.bing.com";
+
+    }
+    
+</script>
+
+<!--<input type="button" value="window演示按钮" onclick="windowObjDemo()" />-->
+<input type="button" value="window演示按钮" onclick="windowObjDemo2()" />
+</body>
+</html>
