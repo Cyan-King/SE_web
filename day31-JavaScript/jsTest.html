@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+    var arr = [8,7,90,1,8,88,2];
+
+    //求最值大值
+    function getMax(arr) {
+
+        var max = 0;
+        for (var x = 1; x < arr.length; x++){
+            if (arr[max] < arr[x]){
+                max = x;
+            }
+        }
+        return arr[max];
+    }
+    //document.write("数组最大值："+getMax(arr)+"<br>");
+
+    //数组元素排序
+    function sortArry(arr) {
+
+        for (x=0; x< arr.length-1; x++){
+            for (y = x+1; y < arr.length; y++){
+                swap(arr, x, y);
+            }
+        }
+
+    }
+    
+    function swap(arr, x, y) {
+        var temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+    sortArry(arr)
+    document.write("排序：" + arr +"<br>");
+</script>
+
+<script type="text/javascript">
+
+
+    // var arr = [3, 2, 1, 21, 34, 99];
+  //反转
+    function Fan(arr) {
+        for (var start = 0, end = arr.length-1; start<end; start++, end--){
+            swap(arr, start, end);
+        }
+    }
+    document.write("反转："+arr);
+    /*反转的动作可以有JDK方法*/
+</script>
+
+</body>
+</html>

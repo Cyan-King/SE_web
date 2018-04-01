@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_array</title>
+</head>
+<body>
+
+<script type="text/javascript" src="out.js"></script>
+<script type="text/javascript">
+    var arr = ["wei", "guo", "ping", "...."];
+    var arr2 = ["ni", "hao", "ma"];
+    // var newArr = arr.concat("MM", arr2);
+    // println(newArr.join("-"));
+    // println(myJoin(newArr,"+"));
+
+    function myJoin(arr, separator) {
+        var str = "";
+        for (var x = 0; x < arr.length; x++){
+            if (x!=arr.length-1){
+                str += arr[x] + separator;
+            }
+            else {
+                str += arr[x]
+            }
+        }
+        return str;
+    }
+
+
+
+    /*println("<hr/>")
+    println(arr);
+    println(arr.pop());//删除数组的最后一个元素并返回最后一个元素
+    println("删除数组的最后一个元素并返回最后一个元素")
+
+
+    println("<hr/>");
+    println(arr);
+    println(arr.shift());//删除数组的最后一个元素并返回第一个元素
+    println("删除数组的最后一个元素并返回第一个元素");*/
+
+    println("<hr/>");
+    println(arr);
+    arr.splice(1,1,"hahah", 90, 90);
+    println(arr);
+
+
+
+</script>
+
+
+</body>
+</html>

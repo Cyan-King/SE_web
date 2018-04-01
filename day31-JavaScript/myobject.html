@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myobject</title>
+</head>
+<body>
+<script type="text/javascript" src="out.js"></script>
+
+
+<script type="text/javascript">
+
+    //用js来描述这个对象
+    /*function Person() {//这个相当于构造函数
+    alert("Person run...");
+    }
+    var p = new Person();
+    p.name = "zhangsan";
+    p.age = 19;
+    p.show = function () {
+        alert("show run ..."+this.name+":" + this.age);
+        document.write("show run ..."+this.name+":" + this.age);
+    }
+        p.show();
+    document.write(p.name + ":" + p.age);*/
+
+
+    /*function Person(name, age) {
+        this.name = name;
+        this.age = age;
+
+        this.setName = function (name) {
+            this.name = name;
+        }
+
+        this.getName = function () {
+            return this.name;
+        }
+    }
+
+    var p;
+    p = new Person("xiaomi", 12);
+    p.setName("xiaoqiang");
+    println(p.getName());*/
+
+    /*var p = {
+        "name": "xiaomi", "age": 12,
+        "getName": function () {
+            return this.name;
+        }, "getAge": function () {
+            return this.age;
+        },"setName":function (name) {
+            this.name = name;
+        },"setAge":function (age) {
+            this.age = age;
+        }
+    }
+
+    p.setName("xiaoming");
+    p.setAge(18);
+    println(p.getName()+":"+p.getAge());*/
+
+    var map = {8:"xiaoqiang", 19:"xiaomi", 28:"King", 13:"Mikl"};
+
+    var m1 = map[19];
+    // println(m1);
+
+    var m2 = get(28);
+    // println(m2)
+
+    function get(key) {
+        return map[key];
+    }
+
+    var myMap = {
+        names:["Mikl","Jack","Tom","Linda"],age:[12,34,56,78]
+    }
+
+    println(myMap.names[2]+" : "+myMap.age[1]);
+
+</script>
+</body>
+</html>

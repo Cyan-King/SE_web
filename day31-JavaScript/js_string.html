@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript" src="out.js"></script>
+<script type="text/javascript" src="stringTools.js"></script>
+<script type="text/javascript">
+    /*var str = "abcde";
+    println(str)
+    println(str.length);//字符串长度
+    println(str.bold());//字符串加粗
+    println(str.fontcolor("red"));//染色
+    println(str.link("http://www.baidu.com"));//做成超链接
+    println(str.substr(2,4));
+    println(str.substring(2,4));*/
+
+    // 自定义string()方法，去除字符串量的空格
+    /*oString():将对象变成字符串。
+自定义String()方法， 去除字符串两端的空格。
+1. 定义两个变量，一个记录开始，一个记录结束。
+2. 从开始进行判断是否是空格，如果是空格就进行递增，知道不是空格为止。
+3. 从结束进行判断是否是空格，如果是空格就进行递减，直到不是空格为止。
+4. 必须保证开始<=结束，这样才可以进行截取。shu*/
+   function trim(str) {
+       var start, end;
+       start = 0;
+       end = str.length-1;
+       while(start<=end && str.charAt(start) == "A"){
+           start++;
+       }
+       while (start<=end && str.charAt(end) == "A"){
+           end--;
+       }
+       return str.substring(start, end+1);
+   }
+
+   // var  s = "    ab c c      ";
+   //  var  s = "AAAAAAAAAAAAAabAAcAAAAAAAAAAAA"
+   // document.write("---" + trim(s) + "-----");
+
+
+    document.write("---"+"AAAAAAAAAAAAAAcbAcAAAAAAAAAAAA".trim()+"----");
+
+</script>
+
+</body>
+</html>

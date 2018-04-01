@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_date</title>
+</head>
+<body>
+
+<script type="text/javascript" src="out.js"></script>
+<script type="text/javascript">
+    var date = new Date();
+  /*  println(date.toLocaleDateString());
+    println(date.toLocaleString());*/
+
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+    var week = date.getDay();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+
+    println(getweek(week));
+
+    function getweek(num) {
+
+        var weeks = ['星期天','星期一','星期二','星期三','星期四','星期五','星期六'];
+        return weeks[num];
+    }
+
+    var time = date.getTime();
+    println(second);
+
+    //将毫秒转住变为日期
+    var date2 = new Date(time);
+    println(date2);
+
+
+</script>
+
+</body>
+</html>

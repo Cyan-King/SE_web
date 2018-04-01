@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    function show(x, y) {
+
+        // alert(arguments.length);
+        for (var a = 0; a < arguments.length; a++){
+            // document.write(arguments[a]+" ");
+        }
+    }
+    show(1,2,3,4,4,5,6)
+</script>
+
+<script type="text/javascript">
+
+    function getSum() {
+        return 100;
+    }
+
+    // var sum = getSum();
+    var sum = getSum;
+    // alert(sum)//直接数据getSum中的内容
+
+</script>
+
+<script type="text/javascript">
+    function show() {
+        alert("show run.....")
+    }
+    // alert(show());//因为没有返回值所以第二次会是一个undefind
+</script>
+
+<!--动态函数-->
+<script type="text/javascript">
+    var add;
+    add = new Function("x, y", "var sum; sum = x + y; return sum;");
+    var he =  add(8, 9);
+    // alert("sum = " + he);
+
+</script>
+
+<!--匿名函数-->
+<script type="text/javascript">
+    var haha;
+    haha = function (a, b) {
+        return a + b;
+    };
+    alert(haha(7, 9))
+
+</script>
+
+</body>
+</html>
