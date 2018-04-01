@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Method</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../out.js"></script>
+<script type="text/javascript">
+
+    var timeid;
+    function Start() {
+        // var b = window.confirm("Are you sure!!");
+        // alert("b = " + b);
+
+        timeid = setInterval("alert('Are you sure!!!')", 3000);
+
+    }
+    
+    function Stop() {
+        clearInterval(timeid);
+    }
+    
+    function Move() {
+        // moveTo(20, 20);
+       for (var x = 0; x < 700; x++){
+           moveBy(10, 10);
+           moveBy(-10, -10);
+           moveBy(10, 10);
+           moveBy(-10, -10);
+       }
+    }
+
+    function Open() {
+
+        open("ad.html","_blank", "height=800,width=800,status=yes,toolbar=yes,menubar=yes,location=yes");
+    }
+    
+    function Close() {
+        close();
+    }
+    
+</script>
+
+<input type="button" value="开始" onclick="Start()" />
+<input type="button" value="停止" onclick="Stop()" />
+<input type="button" value="移动" onclick="Move()" />
+<input type="button" value="打开" onclick="Open()" />
+<input type="button" value="关闭" onclick="Close()" />
+
+</body>
+</html>
