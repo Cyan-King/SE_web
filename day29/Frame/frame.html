@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<!--idea自己开了一个服务器来维护界面，所以绝对路径无法在网页里面实现出来，只有不在里面打开就可以。还有就是..是上一级+/就是可以了，再要上一级..-->
+
+<frameset rows="30%, *">
+
+    <frame src="top.html" name="top" />
+
+
+
+        <frameset cols="30%, *">
+            <frame src="left.html" name="lef" />
+            <frame src="right.html" name="right" />
+        </frameset>
+
+</frameset>
+
+<body>
+
+</body>
+</html>
