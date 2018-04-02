@@ -1,0 +1,76 @@
+
+<!--获取节点-->
+
+<!DOCTYPE html>
+<htmlwe lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取id的方式</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    function getNoteId() {
+
+        //这是document对象中的方法getElementByld()
+        var noteId = document.getElementById("Divid");
+
+        //获取节点的名称，节点的类型和节点的值
+        // alert(noteId.nodeName+":" + noteId.nodeType+":"+noteId.nodeValue);
+
+        //获取节点中的文本
+        alert(noteId.innerHTML);
+
+        // 改变节点中的文本
+        noteId.innerHTML = "DOM节点我不是你大爷，我是你爹".fontcolor("red");
+    }
+    function getNoteName() {
+
+        var noteName = document.getElementsByName("user")[0];
+        //因为name相同所以，返回的一个数组我们要明确到底有数组的长的
+        // alert(noteName.length);
+        // alert(noteName.text);//undefind
+        alert(noteName.value); //获取文本框数输入的信息,value
+    }
+    
+    function getNoteTagName() {
+
+        var notes = document.getElementsByTagName("a");
+        // alert(notes.innerHTML);
+
+        for (var x = 0; x<notes.length; x++){
+
+            // alert(notes[x].innerHTML);
+            notes[x].target = "_blank";
+        }
+
+    }
+
+    function getNoteTagName2() {
+
+        var notes =  document.getElementById("newsLink");
+
+        var anotes =  notes.getElementsByTagName("a");
+
+        for (var x = 0; x < anotes.length; x++){
+
+            // alert(anotes[x].innerHTML);
+            anotes[x].target = "_blank";
+        }
+    }
+</script>
+
+<!--事件源-->
+<input type="button" value="window演示document" onclick="getNoteTagName2()"/>
+<div id="Divid">DOM节点，我是你大爷！！！</div>
+<input type="text" name="user" />
+<a href="http://www.bing.com">必应</a>
+<a href="http://www.baidu.com">百度</a>
+<div id="newsLink">
+    <a href="http://www.168.com">168</a>
+    <a href="http://www.QQ.com">QQ</a>
+    <a href="http://www.Google.com">Google</a>
+</div>
+
+</body>
+</htmlwe>

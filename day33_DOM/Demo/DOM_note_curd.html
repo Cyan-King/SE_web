@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加节点</title>
+
+    <style type="text/css">
+        div{
+            border: aqua solid 1px;
+            width: 400px;
+            height: 50px;
+            padding: 50px;
+            margin: 20px;
+            font-size: 25px;
+        }
+        #div_1{
+            background: aqua;
+        }
+        #div_2{
+            background: red;
+        }
+        #div_3{
+            background: green;
+        }
+        #div_4{
+            background: blue;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--JavaScript负责编程-->
+<script type="text/javascript">
+
+    function crcAndApp() {
+        /*
+        * 添加节点有三个步骤：
+        * 1. 添加一个节点
+        * 2. 拿到要添加目的地的那个节点
+        * 3. 将要添加的那个节点放入目的地节点当中
+        * */
+        //1. 添加一个文本节点，我们使用createTextElment() 方法添加文本节点
+        var oTxtNode = document.createTextNode("This is a new text@@@");
+
+        //2. 拿到添加节点的目的地节点为止
+        var Node = document.getElementById("div_1");
+
+        //3. 将添加的节点放入到该放入的节点为止当中
+        Node.appendChild(oTxtNode);
+    }
+    
+    function crcAndApp2() {
+        //添加一个新的节点，这里我们就用到了createElement()方法了
+        var obutNode = document.createElement("input");
+        obutNode.type = "button"
+        obutNode.value = "this is a new button";
+
+        //2. 拿到添加节点的目的地节点为止
+        var Node = document.getElementById("div_1");
+
+        //3. 将添加的节点放入到该放入的节点为止当中
+        Node.appendChild(obutNode);
+
+    }
+
+    function crcAndApp3() {
+
+        var Node = document.getElementById("div_1");
+
+       // Node.innerHTML = "HAHAHA";
+        Node.innerHTML = "<input type='button' value='按钮' />"
+    }
+
+</script>
+
+<!--节点的删除-->
+<script type="text/javascript">
+    function delNode() {
+
+        var oNode = document.getElementById("div_2");
+
+
+        //使用子节点的父节点来删除子节点
+        oNode.parentElement.removeChild(oNode);
+    }
+</script>
+
+<!--节点的替换和copy-->
+<script type="text/javascript">
+    function updateNode() {
+        var DivNode_1 = document.getElementById("div_1");
+        var DivNode_3 = document.getElementById("div_3");
+
+        DivNode_1.parentElement.replaceChild(DivNode_3, DivNode_1);
+    }
+
+    function CopyNode() {
+        var  DivNode_1 = document.getElementById("div_1");
+        var  DivNode_3 = document.getElementById("div_3");
+        var CopyNode_3 = DivNode_3.cloneNode(true);
+
+        DivNode_1.parentElement.replaceChild(CopyNode_3, DivNode_1);
+    }
+</script>
+<!--事件源-->
+<input type="button" value="创建并添加节点" onclick="crcAndApp3()" />
+<input type="button" value="删除节点" onclick="delNode()" />
+<input type="button" value="修改节点" onclick="updateNode()" />
+<input type="button" value="复制节点" onclick="CopyNode()" />
+
+<div id="div_1">
+
+</div>
+
+<div id="div_2">
+    好好学习
+</div>
+
+<div id="div_3">
+    day day up
+</div>
+
+<div id="div_4">
+    windows节点演示
+</div>
+
+</body>
+</html>

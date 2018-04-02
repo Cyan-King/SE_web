@@ -10,6 +10,7 @@
 <script type="text/javascript">
 
     var timeid;
+    //每隔3秒跳出出来一次
     function Start() {
         // var b = window.confirm("Are you sure!!");
         // alert("b = " + b);
@@ -17,11 +18,13 @@
         timeid = setInterval("alert('Are you sure!!!')", 3000);
 
     }
-    
+
+    //停止clearInerval(),停止弹跳出来的窗体
     function Stop() {
         clearInterval(timeid);
     }
-    
+
+    //窗体移动功能，moveBy是移动窗体，moveTo是使窗体移动到某个指定的坐标点
     function Move() {
         // moveTo(20, 20);
        for (var x = 0; x < 700; x++){
