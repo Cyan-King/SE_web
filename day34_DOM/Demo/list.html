@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+
+    <!--定义CSS-->
+    <style type="text/css">
+        <!--
+        ul是不能设置高度的因为这会限制他的高度，其他标签也是这样的--, >
+        dl dt {
+            height: 30px;
+            font-size: 16px;
+            font-family: 华文隶书,serif;
+            color: blue;
+        }
+
+        dl dd{
+             height: 30px;
+             font-size: 16px;
+            color: red;
+            background: aqua;
+            width: 200px;
+         }
+        .close{
+            overflow: hidden;
+            height: 16px;
+        }
+        .open{
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    var flag = true;
+    function list3() {
+        // alert("list run ...");
+    //    获取ul属性中的overflow的值来修改hilien
+        //因为getElementsBytagName()是一个集合所以需要有角标
+        var oulNode = document.getElementsByTagName("ul")[0];
+
+        if (flag) {
+            oulNode.style.overflow = "visible";
+            //执行了上面的代码就会执行这个代码flag就会编程false我们进行判断，不是true啊
+            //我们就执行下面的这样进行了一个轮回
+            flag = false;
+        }else {
+            oulNode.style.overflow = "hidden";
+            flag = true;
+        }
+    }
+    
+    function list2(node) {
+
+        // var oulNode = document.getElementsByTagName("ul")[0];
+        var oulNode = node.parentElement;
+
+        if (oulNode.className == "open"){
+            oulNode.className = "close";
+        }else {
+            oulNode.className = "open";
+        }
+    }
+
+    /*多个列表中一次只展开一个*/
+    function list(node) {
+
+        var oDLNode  = node.parentElement;
+
+        var oDLNodes = document.getElementsByTagName("dl");
+
+        for (var x = 0; x < oDLNodes.length; x++){
+
+            if (oDLNodes[x] == oDLNode){
+                if (oDLNode.className == "close"){
+                    oDLNode.className = "open";
+                }else {
+                    oDLNode.className = "close";
+                }
+            }else {
+                oDLNodes[x].className = "close";
+            }
+
+        }
+
+    }
+</script>
+
+<!--&lt;!&ndash;标签封装数据，HTML&ndash;&gt;
+<ul  class="close">
+    <li onclick="list(this)">目录标签一</li>
+    <li>子目录1</li>
+    <li>子目录1</li>
+    <li>子目录1</li>
+    <li>子目录1</li>
+</ul>
+<ul class="close">
+    <li onclick="list(this)">目录标签二</li>
+    <li>子目录2</li>
+    <li>子目录2</li>
+    <li>子目录2</li>
+    <li>子目录2</li>
+</ul>
+<ul class="close">
+    <li onclick="list(this)">目录标签三</li>
+    <li>子目录3</li>
+    <li>子目录3</li>
+    <li>子目录3</li>
+    <li>子目录3</li>
+</ul>-->
+
+<!--标签封装数据，HTML-->
+<dl  class="close">
+    <dt onclick="list(this)">目录标签一</dt>
+    <dd>子目录1</dd>
+    <dd>子目录1</dd>
+    <dd>子目录1</dd>
+    <dd>子目录1</dd>
+</dl>
+<dl  class="close">
+    <dt onclick="list(this)">目录标二</dt>
+    <dd>子目录2</dd>
+    <dd>子目录2</dd>
+    <dd>子目录2</dd>
+    <dd>子目录2</dd>
+</dl>
+<dl class="close">
+    <dt onclick="list(this)">目录标签三</dt>
+    <dd>子目录3</dd>
+    <dd>子目录3</dd>
+    <dd>子目录3</dd>
+    <dd>子目录3</dd>
+</dl>
+
+</body>
+</html>

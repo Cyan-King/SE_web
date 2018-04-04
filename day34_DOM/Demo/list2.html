@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+        div{
+            margin: 50px;
+        }
+        ul {
+            float: left;
+            width: 100px;
+            list-style: none;
+        }
+        #a{
+            background: aqua;
+        }
+        #b{
+            background: red;
+        }
+        #c{
+            background: yellow;
+        }
+
+        /*预定义一些样式便于加载*/
+        .close {
+            overflow: hidden;
+            height: 16px;
+        }
+
+        .open {
+            overflow: visible;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<script type="text/javascript">
+
+    function list(node) {
+       var  collULNode = document.getElementsByTagName("ul");
+
+        for (var x = 0; x < collULNode.length; x++){
+
+            if (collULNode[x] == node){
+                if (node.className == "close"){
+                    node.className = "open";
+                }else {
+                    node.className = "close";
+                }
+            }else {
+                collULNode[x].className = "close";
+            }
+
+        }
+
+    }
+
+</script>
+
+    <ul class="close" onclick="list(this)" id="a">
+        <li>菜品：</li>
+        <li>爆炒猪肚</li>
+        <li>孜然牛肉</li>
+        <li>蚂蚁上树</li>
+    </ul>
+    <ul class="close" onclick="list(this)" id="b">
+        <li>甜点：</li>
+        <li>香芋丸子</li>
+        <li>南瓜饼</li>
+        <li>银耳莲子汤</li>
+    </ul>
+    <ul class="close" onclick="list(this)" id="c">
+        <li>酒水：</li>
+        <li>红星二锅头</li>
+        <li>四特</li>
+        <li>江小白</li>
+    </ul>
+
+</body>
+</html>

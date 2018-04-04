@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好友列表</title>
+    <style type="text/css">
+
+        table{
+            border: red solid 2px;
+        }
+        table tr{
+            background: aqua;
+            margin: 0px;
+        }
+        table td{
+            margin: 0px;
+        }
+        table a:link, a:visited{
+            text-decoration: none;
+            color: red;
+        }
+        table ul{
+            list-style: none;
+            display: none;
+            padding: 0px;
+            margin: 0px;
+            border: white solid 1px;
+        }
+        table li{
+            border: white solid 1px;
+        }
+        .close{
+            display: none;
+        }
+        .open{
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    function list(node) {
+
+        var oTDNode = node.parentElement;
+
+        var oULNode = oTDNode.getElementsByTagName("ul")[0];
+
+        /*if (oULNode.className == "open"){
+            oULNode.className = "close";
+        }else{
+            oULNode.className = "open";
+        }*/
+
+        var oTabNode = document.getElementById("goodlist");
+        var collUlNodes = oTabNode.getElementsByTagName("ul");
+
+        for(var x=0; x<collUlNodes.length; x++){
+
+            if(collUlNodes[x]==oULNode){
+                if(oULNode.className == "open"){
+                    oULNode.className = "close";
+                }else{
+                    oULNode.className = "open";
+                }
+            }else{
+                collUlNodes[x].className = "close";
+            }
+        }
+
+    }
+
+</script>
+
+<table id="goodlist">
+    <tr>
+        <td>
+            <a href="javascript:void (0)" onclick="list(this)">家人</a>
+            <ul>
+                <li>爸爸</li>
+                <li>妈妈</li>
+                <li>家人</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="javascript:void (0)" onclick="list(this)">好友</a>
+            <ul>
+                <li>发</li>
+                <li>胖子</li>
+                <li>凯旋</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="javascript:void (0)" onclick="list(this)">室友</a>
+            <ul>
+                <li>张粮</li>
+                <li>尹志明</li>
+                <li>戴长鹏</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
