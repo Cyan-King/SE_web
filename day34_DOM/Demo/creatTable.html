@@ -50,6 +50,7 @@
         }*/
 
 
+       //创建表表格的关键代码
         for (var x = 1; x <= rowVal; x++){
             var oTrNode = oTabNode.insertRow();
             for (var y = 1; y <= colVal; y++){
@@ -58,8 +59,10 @@
             }
         }
 
+        //将table添加进div当中
         document.getElementsByTagName("div")[0].appendChild(oTabNode);
 
+        //使用disabled方法是按钮只能执行一次
         document.getElementsByName("crtBut")[0].disabled = "true";
 
         // flag = false;
