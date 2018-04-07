@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        @import "table.css";
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    function crtTable2() {
+
+        //创建节点-----使用creatElement()方法创建节点
+        var oTabNode = document.createElement("table");
+        var oTbdNode = document.createElement("tBody");
+        var oTrNode = document.createElement("Tr");
+        var oTdNode = document.createElement("td");
+
+        oTabNode.innerHTML = "这是个单元格"
+
+        //添加节点，让这些节点有关系，进行指定层次的节点添加----由下向上添加---在这里我们使用到了appendChild()方法
+        oTrNode.appendChild(oTdNode);
+        oTbdNode.appendChild(oTrNode);
+        oTabNode.appendChild(oTbdNode);
+
+        document.getElementsByTagName("div")[0].appendChild(oTabNode);
+    }
+
+    var flag = true;
+    
+    function crtTable() {
+
+        //创建节点
+        var  oTabNode = document.createElement("table");
+
+        //创建id
+        oTabNode.setAttribute("id", "tabid");
+
+        //获取行和列输入框的节点数据
+        var rowVal = document.getElementsByName("rownum")[0].value;
+        var colVal = document.getElementsByName("colnum")[0].value;
+
+
+
+        //如果不为ture也就是false的话就直接返回一个空的
+       /* if (!flag){
+            return;
+        }*/
+
+
+        for (var x = 1; x <= rowVal; x++){
+            var oTrNode = oTabNode.insertRow();
+            for (var y = 1; y <= colVal; y++){
+                var oTdNode = oTrNode.insertCell();
+                oTdNode.innerHTML = x + ":" + y;
+            }
+        }
+
+        document.getElementsByTagName("div")[0].appendChild(oTabNode);
+
+        document.getElementsByName("crtBut")[0].disabled = "true";
+
+        // flag = false;
+    }
+    
+    function delRow() {
+        //首先判断table表格是否存在,判断之前我们先要获取itable id节点
+        var oTabNode = document.getElementById("tabid");
+        if (oTabNode == null){
+            alert("请先创建table");
+            return;
+        }
+        //获取要删除表格的行数
+        var rowVal = document.getElementsByName("delrow")[0].value;
+        //判断是否行数够了，没有超标或者没不正常操作
+        if(rowVal >= 1 && rowVal <= oTabNode.rows.length ){
+            oTabNode.deleteRow(rowVal-1);
+        }else {
+            alert("大兄弟你的行数输错了啊！")
+        }
+    }
+
+    function delCol() {
+
+        //首先判断table表格是否存在,判断之前我们先要获取itable id节点
+        var oTabNode = document.getElementById("tabid");
+        if (oTabNode == null){
+            alert("请先创建table");
+            return;
+        }
+
+        //获取要删除表格的烈数
+        var colVal = document.getElementsByName("delcol")[0].value;
+        //判断列数是否够，是否符合逻辑
+        if (colVal >= 1 && colVal <= oTabNode.rows[0].cells.length){
+            //循环每一行
+            for (var x = 0; x <= oTabNode.rows.length; x++){
+                //获取每一行的中的同一列
+                oTabNode.rows[x].deleteCell(colVal-1);
+            }
+        }
+        else{
+            alert("大兄弟你的列数输错啦！");
+        }
+    }
+    
+</script>
+行<input type="text" name="rownum" />列<input type="text" name="colnum" />
+<input type="button" name="crtBut" value="创建表格" onclick="crtTable()">
+<hr/>
+行<input type="text" name="delrow" /><input type="button" value="删除行" onclick="delRow()" /><br/>
+行<input type="text" name="delcol" /><input type="button" value="删除列" onclick="delCol()" />
+<div></div>
+
+</body>
+</html>
