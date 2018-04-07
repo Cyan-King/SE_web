@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    function getsum() {
+
+        //创建一个累加器
+        var sum = 0;
+        //获取节点
+        var oCheck = document.getElementsByName("item");
+
+        //遍历节点
+        for (var x = 0; x < oCheck.length; x++){
+            //判断checkbox的节点
+            if (oCheck[x].checked){
+                //节点状态正确进行累加
+                sum += parseInt(oCheck[x].value);
+            }
+        }
+        //将累加的数添加到span上
+        document.getElementById("sumid").innerHTML = sum;
+    }
+
+    function checkAll(node) {
+        var oCheck =document.getElementsByName("item");
+
+        for (var x = 0; x < oCheck.length; x++){
+            //将AllChecked节点的状态添加所有的复选框当中
+            oCheck[x].checked = node.checked;
+        }
+
+    }
+
+</script>
+
+<input type="checkbox" name="Allitem" onclick="checkAll(this)"><br/>
+<input type="checkbox" name="item" value="4000">笔记本 4000元<br/>
+<input type="checkbox" name="item" value="4000">笔记本 4000元<br/>
+<input type="checkbox" name="item" value="4000">笔记本 4000元<br/>
+<input type="checkbox" name="item" value="4000">笔记本 4000元<br/>
+<input type="checkbox" name="item" value="4000">笔记本 4000元<br/>
+<input type="checkbox" name="item" value="4000">笔记本 4000元<br/>
+<input type="checkbox" name="item" value="4000">笔记本 4000元<br/>
+<input type="checkbox" name="Allitem" onclick="checkAll(this)"><br/>
+<input type="button" value="总金额" onclick="getsum()" /><span id="sumid"></span>
+</body>
+</html>
