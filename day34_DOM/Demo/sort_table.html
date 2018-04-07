@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort_table</title>
+    <style type="text/css">
+        @import "table.css";
+        th a:link, th a:visited{
+            text-decoration: none;
+            color: green;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function sort() {
+            //获取表格对象节点
+            var oTabNode = document.getElementById("info");
+            var RowsNode = oTabNode.rows;
+
+            //定义一个临时容器，并将需要排序的行对象存储到临时容器中
+            var trArr = [];
+
+            //遍历table中的输入，并将数据存储到数组中
+            for(var x = 1; x < RowsNode.length; x++){
+                trArr[x-1] = RowsNode[x];
+            }
+
+            //对临时容器进行排序
+            mySort(trArr);
+
+            //将排序好的行对象添加进表格
+            for(var x = 0; x < trArr.length; x++){
+                trArr[x].parentNode.appendChild(trArr[x]);
+            }
+        }
+
+        function mySort(arr) {
+
+            for (var x = 0; x < arr.length; x++){
+                for (var y = x+1; y < arr.length; y++){
+                    //第二列的数组遍历排序比较cells[1]
+                    if (parseInt(arr[x].cells[1].innerHTML) > parseInt(arr[y].cells[1].innerHTML)){
+                        var temp = arr[x];
+                        arr[x] = arr[y];
+                        arr[y] = temp;
+                    }
+                }
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+<table id="info">
+    <tr>
+        <th>姓名：</th>
+        <th><a href="javascript:void (0)" onclick="sort()">年龄：</a></th>
+        <th>地址：</th>
+    </tr>
+    <tr>
+        <td>赵一</td>
+        <td>17</td>
+        <td>上海</td>
+    </tr>
+    <tr>
+        <td>钱二</td>
+        <td>14</td>
+        <td>重庆</td>
+    </tr>
+    <tr>
+        <td>孙三</td>
+        <td>24</td>
+        <td>成都</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>30</td>
+        <td>南昌</td>
+    </tr>
+    <tr>
+        <td>周五</td>
+        <td>32</td>
+        <td>无锡</td>
+    </tr>
+    <tr>
+        <td>郑六</td>
+        <td>27</td>
+        <td>杭州</td>
+    </tr>
+</table>
+
+</body>
+</html>
