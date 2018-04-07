@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="table.css" />
+    <style type="text/css">
+        .one{
+            background-color: aqua;
+        }
+        .two{
+            background-color: red;
+        }
+        .over{
+            background-color: green;
+        }
+        .open{
+            background-color: blue;;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        var name;
+
+        //间隔颜色
+        function trColor(node) {
+            //先获取表格id的节点
+            var oTabNode = document.getElementById("info");
+
+            //表格中的所有行
+            var oRowNodes = oTabNode.rows;
+            //遍历要操作的对象
+            for(var x = 1; x <= oRowNodes.length; x++){
+                if (x % 2 == 1){
+                    oRowNodes[x].className = "one";
+                }else {
+                    oRowNodes[x].className = "two";
+                }
+
+                oRowNodes[x].onmouseover = function(){
+                    name = this.className;
+                    this.className = "over";
+                }
+                oRowNodes[x].onmouseout = function(){
+                    this.className = name;
+                }
+            }
+        }
+        
+        onload = function () {
+            trColor();
+        }
+
+    </script>
+
+</head>
+<body>
+<table id="info">
+    <tr>
+        <th>姓名：</th>
+        <th>年龄：</th>
+        <th>地址：</th>
+    </tr>
+    <tr>
+        <td>赵一</td>
+        <td>17</td>
+        <td>上海</td>
+    </tr>
+    <tr>
+        <td>钱二</td>
+        <td>14</td>
+        <td>重庆</td>
+    </tr>
+    <tr>
+        <td>孙三</td>
+        <td>24</td>
+        <td>成都</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>30</td>
+        <td>南昌</td>
+    </tr>
+    <tr>
+        <td>周五</td>
+        <td>32</td>
+        <td>无锡</td>
+    </tr>
+    <tr>
+        <td>郑六</td>
+        <td>27</td>
+        <td>杭州</td>
+    </tr>
+</table>
+
+
+</body>
+</html>
