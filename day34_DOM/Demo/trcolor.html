@@ -30,7 +30,7 @@
 
             //表格中的所有行
             var oRowNodes = oTabNode.rows;
-            //遍历要操作的对象
+            //遍历要操作的对象，判断是否是单行或者双行来涂色
             for(var x = 1; x <= oRowNodes.length; x++){
                 if (x % 2 == 1){
                     oRowNodes[x].className = "one";
@@ -38,6 +38,7 @@
                     oRowNodes[x].className = "two";
                 }
 
+                //使用onmouseover和onmouseout方法来做到鼠标亮色的效果
                 oRowNodes[x].onmouseover = function(){
                     name = this.className;
                     this.className = "over";
@@ -49,6 +50,7 @@
         }
         
         onload = function () {
+            //调用trColor()方法
             trColor();
         }
 
