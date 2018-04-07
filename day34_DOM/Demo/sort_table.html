@@ -16,12 +16,13 @@
         function sort() {
             //获取表格对象节点
             var oTabNode = document.getElementById("info");
+            //获取表格中所有的行数
             var RowsNode = oTabNode.rows;
 
             //定义一个临时容器，并将需要排序的行对象存储到临时容器中
             var trArr = [];
 
-            //遍历table中的输入，并将数据存储到数组中
+            //遍历table中的数据，并将数据存储到数组中
             for(var x = 1; x < RowsNode.length; x++){
                 trArr[x-1] = RowsNode[x];
             }
