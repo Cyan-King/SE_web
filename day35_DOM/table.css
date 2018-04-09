@@ -1,0 +1,19 @@
+table{
+    border: red 1px solid;
+    margin: 20px;
+}
+table td{
+    border: black 1px solid;
+    width: 200px;
+    height: 50px;
+    padding: 20px;
+    font-size: 20px;
+}
+table th{
+    border: black 1px solid;
+    width: 200px;
+    height: 50px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: cadetblue;
+}

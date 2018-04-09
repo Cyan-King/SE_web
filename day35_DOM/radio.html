@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问卷调查</title>
+    <style type="text/css">
+        #div_2{
+            display: none;
+        }
+        ul li{
+            list-style: none;
+            margin: 0px;
+        }
+        .close{
+            display: none;
+        }
+        .open{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    function show(node) {
+
+        var oDiv2Node = document.getElementById("div_2");
+        var oRadioNode = document.getElementsByName("wenjuan");
+        for (var x = 0; x < oRadioNode.length; x++){
+            if (oRadioNode[x].checked){
+                oDiv2Node.style.display = "none";
+            }else {
+                oDiv2Node.style.display = "block";
+            }
+        }
+
+        /*var oDiv2Node = document.getElementById("div_2");
+        if(node.value == "yes"){
+            oDiv2Node.style.display = "block";
+        }else {
+            oDiv2Node.style.display = "none";
+        }*/
+    }
+
+    function showResult() {
+
+        var val;
+        var flag = false;
+        var oRadioNode = document.getElementsByName("no1");
+
+        //遍历li中的数据
+        for (var x = 0; x < oRadioNode.length; x++){
+            //判断是否选中单选框，并判断是否勾选哦，这是健壮性判断
+            if (oRadioNode[x].checked){
+                //选中的记录他的value值
+                val = oRadioNode[x].value;
+                //判断
+                flag = true;
+                //然后就停止循环
+                break;
+            }
+        }
+
+        if (!flag){
+            document.getElementById("sp").innerHTML = "请勾选，MDZZ！！";
+            //若是这一关都没过下面的代码就不用运行了！
+            return;
+        }
+
+        //判断value中的值进行相应的输出
+        if (val >=1 && val <= 3){
+            document.getElementById("res_1").className = "open";
+            document.getElementById("res_2").className = "close";
+        }else {
+            document.getElementById("res_1").className = "close";
+            document.getElementById("res_2").className = "open";
+        }
+    }
+
+</script>
+
+
+<div>
+    <h3>性格调查</h3>
+
+    <h4 id="no1">第一题：你喜欢的水果是什么：</h4>
+    <ul id="ulno1">
+        <li><input type="radio" name="no1" value="1" />苹果</li>
+        <li><input type="radio" name="no1" value="2" />梨子</li>
+        <li><input type="radio" name="no1" value="3" />香蕉</li>
+        <li><input type="radio" name="no1" value="4" />西瓜</li>
+        <li><input type="radio" name="no1" value="5" />椰子</li>
+    </ul>
+</div>
+<input type="button" value="调查结果" onclick="showResult()" /><span id="sp"></span>
+<div id="res_1" class="close">1-3分你的生活是平淡的，建议....</div>
+<div id="res_2" class="close">4-5分你的生活太过于热火，建议.....</div>
+
+<hr/>
+
+<div id="div_1">
+问卷调查：
+请问是否允许：<input type="radio" name="wenjuan" value="yes" onclick="show(this)" />是<input type="radio" name="wenjuan" value="no" checked="checked" onclick="show(this)" />否
+</div>
+<div id="div_2">
+您的姓名：<input type="text" /><br/>
+您的邮箱：<input type="text" /><br/>
+</div>
+</body>
+</html>

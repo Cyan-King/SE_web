@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    function changColor(node) {
+
+        var oSelectNode = document.getElementById("selectColor");
+        //获取option节点
+        var ValColor = oSelectNode.options[oSelectNode.selectedIndex].value;
+
+        document.getElementById("text").style.color = ValColor;
+    }
+
+
+</script>
+
+<div id="text">
+    由唯唯喏喏的官宦之家的千金小姐，发展到勇于决裂、敢于献身的深情女郎，这是杜丽娘性格的第一度发展。<br/>
+    一度发展是如此的迅捷，升华得如此强烈，梦醒之后与现实的距离和反差又是如此之巨大，以致杜丽娘不得不付出燃尽生命全部能量的代价，<br/>
+    病死于寻梦觅爱的徒然渴望之中。但杜丽娘的可贵之处不仅在于能为情而死，还表现在死后面对阎罗王据理力争，表现在身为鬼魂而对情人柳梦梅一往情深，以身相慰，<br/>
+    最终历尽艰阻为情而复生，与柳梦梅在十分简陋的仪式下称意成婚。这是杜丽娘性格的第二度发展与升华，所谓“一灵咬住”，决不放松，“生生死死为情多”。<br/>
+</div>
+<div>
+    <select id="selectColor" onchange="changColor(this)">
+        <option value="black" op>选中颜色</option>
+        <option style="background-color: blue" value="blue"></option>
+        <option style="background-color: red" value="red"></option>
+        <option style="background-color: aqua" value="aqua"></option>
+    </select>
+</div>
+
+</body>
+</html>

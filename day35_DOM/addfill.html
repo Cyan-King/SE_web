@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    function addFile() {
+        var oTabNode = document.getElementById("addfile");
+
+        var oTrNode = oTabNode.insertRow();
+
+        var oTdNode_file = oTrNode.insertCell();
+        var oTdNode_del = oTrNode.insertCell();
+
+        oTdNode_file.innerHTML = "<input type='file' />";
+        oTdNode_del.innerHTML = "<a href='javascript:void(0)' onclick='deletefile(this)'>删除</a>";
+    }
+    function deletefile(node) {
+        var oTabNode = document.getElementById("addfile");
+
+        oTabNode.deleteRow();
+    }
+</script>
+
+<table id="addfile">
+    <tr>
+        <td><a href="javascript:void(0)" onclick="addFile()">添加附件</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

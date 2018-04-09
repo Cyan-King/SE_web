@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="table.css" />
+    <style type="text/css">
+        .one{
+            background-color: green;
+        }
+        .tow{
+            background-color: blue;
+        }
+        .over{
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    function trColor() {
+        var name;
+        //首先我们先要获取table的节点
+        var oTabNode = document.getElementById("info");
+        //获取表格的行数
+        var RowNode = oTabNode.rows;
+        //遍历表格的行数
+        for(var x = 1; x < RowNode.length-1; x++){
+            if (x%2 == 1){
+                RowNode[x].className = "one";
+            }else {
+                RowNode[x].className = "tow";
+            }
+            RowNode[x].onmouseover = function () {
+                name = this.className;
+                this.className = "over";
+            }
+            RowNode[x].onmouseout = function () {
+                this.className = name;
+            }
+
+        }
+    }
+
+    onload = function () {
+        trColor();
+    }
+
+    function chekAll(node) {
+
+        //获取复选框节点
+        var  checkAll = document.getElementsByName("item");
+
+        //遍历复选款节点
+        for (var x = 0; x < checkAll.length; x++){
+            //跟随全选的节点
+            checkAll[x].checked = node.checked;
+        }
+    }
+
+    function CheckAllBut(num) {
+
+        //获取所有复选框节点
+        var checkAll = document.getElementsByName("item");
+
+        //遍历复选框节点
+        for (var x = 0; x < checkAll.length; x++){
+            if (num > 1){
+                //这里实现了反选、
+                checkAll[x].checked = !checkAll[x].checked;
+            }else {
+                /*
+                0----false
+                1----true
+                这里实现了全选和取消权限
+                 */
+                checkAll[x].checked = num;
+            }
+        }
+    }
+
+    //删除所勾选的复选框节点
+    function delCheck() {
+        if (confirm("大兄弟情书你都要删啊！！！！")){
+            return;
+        }
+
+
+        //获取所有复选框节点
+        var checkAll = document.getElementsByName("item");
+
+        //遍历复选框节点
+        for (var x = 0; x < checkAll.length; x++){
+
+            if (checkAll[x].checked){
+                // 先获取tr节点
+                oTrNode = checkAll[x].parentElement.parentElement;
+                //删除tr节点先要货去之前节点
+                oTrNode.parentElement.removeChild(oTrNode);
+                x--
+            }
+        }
+        trColor();
+    }
+
+
+</script>
+
+<table id="info">
+    <tr>
+        <th><input type="checkbox" name="allitem" onclick="chekAll(this)" />全选</th>
+        <th>发件人</th>
+        <th>邮件名称</th>
+        <th>邮件附属信息</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三11</td>
+        <td>我是邮件11</td>
+        <td>我是附属信息11</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三22</td>
+        <td>我是邮件22</td>
+        <td>我是附属信息22</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三33</td>
+        <td>我是邮件33</td>
+        <td>我是附属信息11</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三44</td>
+        <td>我是邮件44</td>
+        <td>我是附属信息44</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三55</td>
+        <td>我是邮件55</td>
+        <td>我是附属信息55</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三66</td>
+        <td>我是邮件66</td>
+        <td>我是附属信息66</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三77</td>
+        <td>我是邮件77</td>
+        <td>我是附属信息77</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三88</td>
+        <td>我是邮件88</td>
+        <td>我是附属信息88</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三99</td>
+        <td>我是邮件99</td>
+        <td>我是附属信息99</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三100000</td>
+        <td>我是邮件100000</td>
+        <td>我是附属信息100000</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三11111</td>
+        <td>我是邮件11111</td>
+        <td>我是附属信息1111</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="item" /></td>
+        <td>张三1222222</td>
+        <td>我是邮件122222</td>
+        <td>我是附属信息112222</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="allitem" onclick="chekAll(this)" />全选</td>
+        <td colspan="3">
+            <input type="button" value="全选" onclick="CheckAllBut(1)" />
+            <input type="button" value="取消全选" onclick="CheckAllBut(0)" />
+            <input type="button" value="反选" onclick="CheckAllBut(2)" />
+            <input type="button" value="删除所选附件" onclick="delCheck()" />
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

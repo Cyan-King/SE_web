@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    function selectCity() {
+
+        //设置下拉菜单集合
+        var  collCity = [['选择城市'],['东城区','南城区','北城区','西城区'],
+            ['武汉','长沙','洞庭湖','黄石'],
+            ['重庆','绵阳','资阳','延安'],
+            ['南昌','丰城','赣州','宜春']];
+
+        // 获取两个下拉菜单的节点
+        var oSelNode = document.getElementById("selid");
+        var oSubSelNode = document.getElementById("subselid");
+
+        //获取下拉框的状态，选了谁
+        var index = oSelNode.selectedIndex;
+        //通过角标数组获取相对于的数组
+        var arrCity = collCity[index];
+
+        //清空角标内容
+        oSubSelNode.length = 0;
+        //将数组加载到子菜单中
+        for(var x = 0; x < arrCity.length; x++){
+            var oOptionNode = document.createElement("option");
+            oOptionNode.innerHTML = arrCity[x];
+
+            oSubSelNode.appendChild(oOptionNode);
+        }
+
+
+    }
+    
+</script>
+
+<select id="selid" onchange="selectCity()">
+    <option>---选择省份---</option>
+    <option>北京</option>
+    <option>湖北</option>
+    <option>四川</option>
+    <option>江西</option>
+</select>
+<select id="subselid">
+    <option>选择城市</option>
+</select>
+
+</body>
+</html>
