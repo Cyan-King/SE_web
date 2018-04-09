@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    function checkUser() {
+        var flag;
+        var oUserNode = document.getElementsByName("user")[0];
+
+        var name = oUserNode.value;
+
+        var oSpanNode = document.getElementById("username");
+
+        //在这里我们添加正则表达式来判断用户名的形式
+        // 四个数字
+        var reg = new RegExp("^[0-9]{4}$");
+        //四个字母
+        reg = new RegExp("^[a-z]{4}$");
+
+        // if (name == "abc"){
+        if(reg.test(name)){
+            oSpanNode.innerHTML = "用户名正确";
+            flag = true;
+        }else {
+            oSpanNode.innerHTML = "用户名错误";
+            flag = false;
+        }
+        return flag;
+    }
+    function checksubmit() {
+        //如果checkUser()返回的是真的话，我们返回真，如果是假的话我们返回假
+        if (checkUser()){
+            return true;
+        }else {
+            return false;
+        }
+        
+    }
+</script>
+
+<form id="userinfo" onsubmit="return checksubmit()">
+    用户名<input type="text" name="user" onblur="checkUser()" /><span id="username"></span>
+    <br/>
+    密码<input type="text" name="pws" /><br/>
+    <input type="submit" name="sub" />
+</form>
+
+</body>
+</html>
