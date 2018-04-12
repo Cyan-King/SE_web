@@ -3,49 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        form{
+            margin: 10px;
+        }
+        form input{
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
 
 <script type="text/javascript">
-    function checkUser() {
+    function check(name, reg, spandId, okinfo, errinfo) {
         var flag;
-        var oUserNode = document.getElementsByName("user")[0];
+        var val = document.getElementsByName(name)[0].value;
 
-        var name = oUserNode.value;
+        var oSpanNode = document.getElementById(spandId);
 
-        var oSpanNode = document.getElementById("username");
-
-        //在这里我们添加正则表达式来判断用户名的形式
+       /* //在这里我们添加正则表达式来判断用户名的形式
         // 四个数字
         var reg = new RegExp("^[0-9]{4}$");
         //四个字母
-        reg = new RegExp("^[a-z]{4}$");
+        reg = new RegExp("^[a-z]{4}$");*/
 
-        // if (name == "abc"){
-        if(reg.test(name)){
-            oSpanNode.innerHTML = "用户名正确";
+       if (val == null || val == ""){
+           oSpanNode.innerHTML = "请先输入";
+       }else {
+           // if (name == "abc"){
+           if(reg.test(val)){
+               oSpanNode.innerHTML = okinfo;
+               flag = true;
+           }else {
+               oSpanNode.innerHTML = errinfo;
+               flag = false;
+           }
+           return flag;
+       }
+
+
+    }
+    
+    function checkUser() {
+        reg = new RegExp("^[a-z]{4}$");
+        //返回check()的值
+        return check("user", reg, "userSpan", "用户名正确", "用户名错误");
+    }
+    
+    function checkPws() {
+        reg = /^[0-9]{4}$/;
+        //返回check()的值
+        return  check("pws", reg, "pwsSpan", "密码正确", "密码错误");
+    }
+    
+    function checkRepws() {
+        var flag;
+        var oPwsNode = document.getElementsByName("pws")[0].value;
+
+        var oRepwsNode = document.getElementsByName("Repws")[0].value;
+
+        var oRepwsSpanNode = document.getElementById("repwsSpan");
+
+        if (oPwsNode == oRepwsNode){
+            oRepwsSpanNode.innerHTML = "两次密码一致";
             flag = true;
         }else {
-            oSpanNode.innerHTML = "用户名错误";
-            flag = false;
+            oRepwsSpanNode.innerHTML = "两次密码不致";
+            flag = true;
         }
         return flag;
     }
+
+    function checkMail() {
+        reg = /^(\w)+.@gmail.com$/
+        //返回check()的值
+        return check("mail",reg,"mailSpan","邮件地址正确","邮件地址错误");
+    }
+    
     function checksubmit() {
         //如果checkUser()返回的是真的话，我们返回真，如果是假的话我们返回假
-        if (checkUser()){
+        if (checkUser() && checkPws() && checkRepws() && checkMail()){
+            alert("true");
             return true;
         }else {
+            alert("false");
             return false;
         }
-        
+
     }
 </script>
 
 <form id="userinfo" onsubmit="return checksubmit()">
-    用户名<input type="text" name="user" onblur="checkUser()" /><span id="username"></span>
+    用户名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="user" onblur="checkUser()" /><span id="userSpan"></span>
     <br/>
-    密码<input type="text" name="pws" /><br/>
+    密码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="pws" onblur="checkPws()" /><span id="pwsSpan"></span>
+    <br/>
+    确认密码：<input type="text" name="Repws" onblur="checkRepws()" /><span id="repwsSpan"></span>
+    <br/>
+    邮件:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="mail" onblur="checkMail()" /><span id="mailSpan"></span>
+    <br/>
     <input type="submit" name="sub" />
 </form>
 
