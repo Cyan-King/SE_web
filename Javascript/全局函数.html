@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var str = "我是你爹爹---123father";
+
+    // eval(str);
+
+    var str1 = encodeURI(str);
+    //对字符进行编译
+    document.write(str1);
+    document.write("<hr/>");
+
+    document.write(decodeURI(str1));
+
+    document.write("<hr/>");
+
+    //isNan();是否是数字的判断，是数字的话就是false,不是的话就是true
+    var str2 = 112;
+
+    document.write(isNaN(str2));//false
+
+</script>
+
+</body>
+</html>

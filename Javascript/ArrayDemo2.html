@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    var arr1 = [1, 2, 3];
+    var arr2 = new Array("a", "b", "c");
+
+    //concar的使用
+    // document.write("Concat="+ arr1.concat(arr2) + "<br/>");
+
+    var arr = arr1.concat(arr2);
+    document.write("new arr1 :" + arr + "<br/>");
+    document.write(arr.length);
+    document.write("<hr/>");
+
+    //join的使用
+    document.write("join = " + arr1.join("-") + "<br/>");
+    document.write("<hr/>");
+
+    //push的使用
+    document.write("push = " + arr1.push("张三") + "<br/>");
+
+    document.write("new arr1 : " + arr1 + "<br/>");
+    document.write("new arr1 length : " + arr1.length + "<br/>");
+
+    document.write("<hr/>");
+
+    //pop()方法的使用----删除最后一位并且返回出来
+    document.write("old arr1 : " + arr1+ "<br/>");
+    document.write("return pop = " + arr1.pop() + "<br/>");
+    document.write("new arr1 : " + arr1 + "<br/>");
+    document.write("<hr/>");
+
+    //reverse()方法进行反转
+    document.write(arr1.reverse() + "<br/>");
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var str = "Google";
+    var str2 = "bing";
+    //字符串长度
+    document.write("str length : " + str.length + "<br/>");
+    //字符串加粗
+    document.write("str bold : " + str.bold() + "<br/>");
+    document.write("<hr/>");
+
+    //设置字符串字体颜色
+    document.write("str color : " + str.bold().fontcolor("red") + "<br/>");
+    document.write("<hr/>");
+    //设置字符串字体大小
+
+    //concar方法实现---字符串连接
+    document.write("concar : -----" + str.concat(str2) + "<br/>");
+    document.write("<hr/>");
+
+    //charAt方法实现---返回指定位置的字符串
+    document.write("charAt---return:" + str.charAt(2) + "<br/>");//o
+    document.write("<hr/>");
+
+    //indexOf---返回字符串的的位置
+    document.write("indexOf : " + str.indexOf("g") + "<br/>");
+    document.write("<hr/>");
+
+    //split();字符分割
+    var str3 = "a-b-c";
+    document.write("split----" + str3.split("-") + "<br/>");
+    document.write("<hr/>");
+
+    //replace()----字符的替换
+    document.write("replace------" + str.replace("oo", "a") + "<br/>");
+    document.write("<hr/>");
+
+    //substr和substring方法的使用
+    document.write("substr : ------" + str.substr(0,3) + "<br/>");//oog-----substr(x, y)-----从x开始截取从这个开始的后面y位字符
+    document.write("substring : -----" + str.substring(1,3));//oo----substring(x, y)----从x位开始到y位但是包括最后一位
+    document.write("<hr/>");
+
+    //link方法的使用
+    document.write(str.link("http://www.Google.com"));
+</script>
+
+</body>
+</html>
