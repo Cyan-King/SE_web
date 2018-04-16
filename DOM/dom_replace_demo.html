@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function replace1() {
+            /*
+            * 这个案例我们将用到replaceChild()方法来替换标签
+            * 替换标签之前我们可以先来创建标签
+            * */
+            var oULNode = document.getElementById("ulid");
+            var oLI1 = document.getElementById("li1");
+            var oLI3 = document.getElementById("li3");
+
+            oULNode.replaceChild(oLI1, oLI3);
+            oULNode.replaceChild(oLI3, oLI1);
+
+           /* //在这里我们来创建一个li接待你
+            var li5 = document.createElement("li");
+
+            //创建text
+            var text5 = document.createTextNode("你大爷");
+
+            //将text5加入到li5中
+            li5.appendChild(text5);
+            //将li添加到ul中
+            oULNode.appendChild(li5);
+
+            oULNode.replaceChild(li5, oLI2);*/
+
+        }
+    </script>
+</head>
+<body>
+<ul id="ulid">
+    <li id="li1">西瓜</li>
+    <li id="li2">哈密瓜</li>
+    <li id="li3">香蕉</li>
+    <li id="li4">苹果</li>
+</ul>
+<input type="button" value="replace" onclick="replace1()" />
+</body>
+</html>
