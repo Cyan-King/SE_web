@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div_1{
+            border: 1px solid red;
+            margin-bottom: 10px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script type="text/javascript">
+        function copy1() {
+
+            var oULNode = document.getElementById("ulid");
+            var copyNode = oULNode.cloneNode(true);
+            var oDIV_1Node = document.getElementById("div_1");
+            oDIV_1Node.appendChild(copyNode);
+        }
+    </script>
+</head>
+<body>
+<ul id="ulid">
+    <li id="li1">西瓜</li>
+    <li id="li2">哈密瓜</li>
+    <li id="li3">香蕉</li>
+    <li id="li4">苹果</li>
+</ul>
+<div id="div_1">
+
+</div>
+<input type="button" value="copy" onclick="copy1()" />
+</body>
+</html>
