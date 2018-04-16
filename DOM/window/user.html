@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="1px black">
+    <tr>
+        <th>操作</th>
+        <th>编号</th>
+        <th>姓名</th>
+    </tr>
+    <tr>
+        <td><input type="button" value="选择" onclick="s1('101', '张三')"/></td>
+        <td>101</td>
+        <td>张三</td>
+    </tr>
+    <tr>
+        <td><input type="button" value="选择" onclick="s1('102', '李四')"/></td>
+        <td>102</td>
+        <td>李四</td>
+    </tr>
+    <tr>
+        <td><input type="button" value="选择" onclick="s1('103', '王五')"/></td>
+        <td>103</td>
+        <td>王五</td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    function s1(num, name) {
+        //返货创建该页面的对象
+        var p = window.opener;
+        //将值赋值给相应的位置
+        p.document.getElementById("numid").value = num;
+        p.document.getElementById("nameid").value = name;
+
+        window.close();
+    }
+</script>
+
+</body>
+</html>
