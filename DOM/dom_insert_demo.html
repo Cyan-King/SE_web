@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        function insert1() {
+            //这里就是oldNode，我们先要获取这个标签（元素）
+            var oLI3 = document.getElementById("li3");
+            //想要添加一个li，那先要创建一个li
+            //获取ul的节点
+            var oULNode = document.getElementById("ulid");
+            //使用crearElment()方法创建标签
+            var li5 = document.createElement("li");
+            //创建文本
+            var text5 = document.createTextNode("董小宛");
+            //将文本添加到li中
+            li5.appendChild(text5);
+            //将li5添加到ul当中
+            oULNode.insertBefore(li5, oLI3 );
+        }
+    </script>
+</head>
+<body>
+
+<div id="div_1">
+    <ul id="ulid">
+        <li id="li1">西施</li>
+        <li id="li2">王昭君</li>
+        <li id="li3">貂蝉</li>
+        <li id="li4">杨玉环</li>
+    </ul>
+</div>
+<input type="button" value="insert" onclick="insert1()" />
+
+</body>
+</html>
