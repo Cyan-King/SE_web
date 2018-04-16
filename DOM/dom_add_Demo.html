@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //设置全局变量
+        var x = 3;
+
+        function add1() {
+            //执行x++操作
+            x++;
+            //先获取ul的元素
+            var oULNode = document.getElementById("ulid");
+            //创建li元素
+            var oLINode = document.createElement("li");
+            //创建文本元素
+            var oTextNode = document.createTextNode(x)
+
+            //将文本元素添加到li元素里面
+            oLINode.appendChild(oTextNode);
+            //将li元素添加到ul元素中
+            oULNode.appendChild(oLINode);
+
+        }
+    </script>
+</head>
+<body>
+<ul id="ulid">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<input type="button" value="add" onclick="add1()"/>
+</body>
+</html>
