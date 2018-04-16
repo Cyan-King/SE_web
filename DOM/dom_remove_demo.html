@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    function remove1() {
+        /*
+        * 删除一个标钱先要获取一个标签,而且还要是从要删除的标签的父标签上删除
+        * */
+        var oULNode = document.getElementById("ulid");
+        var oLI3 = document.getElementById("li3");
+        oULNode.removeChild(oLI3);
+    }
+</script>
+<body>
+<ul id="ulid">
+    <li id="li1">西瓜</li>
+    <li id="li2">哈密瓜</li>
+    <li id="li3">香蕉</li>
+    <li id="li4">苹果</li>
+</ul>
+<input type="button" value="remove" onclick="remove1()" />
+</body>
+</html>
