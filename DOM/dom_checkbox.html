@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function checkALL1(node) {
+            var oCheckNode = document.getElementsByName("love");
+
+            for (var x = 0; x < oCheckNode.length; x++){
+
+                oCheckNode[x].checked = node.checked;
+            }
+        }
+
+        function checkAll2(num) {
+
+            var oCheckNode = document.getElementsByName("love");
+
+
+            for (var x = 0; x < oCheckNode.length; x++){
+
+                if (num > 1){
+                    //反选操作
+                    oCheckNode[x].checked = !oCheckNode[x].checked;
+                }else {
+                    oCheckNode[x].checked = num;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<input type="checkbox" name="chekcAll" onclick="checkALL1(this)" />全选<br/>
+<input type="checkbox" name="love" />篮球
+<input type="checkbox" name="love" />篮球
+<input type="checkbox" name="love" />篮球
+<input type="checkbox" name="love" />篮球
+<br/>
+<input type="button" id="all" value="全选" onclick="checkAll2(1)" />
+<input type="button" id="Noall" value="不全选" onclick="checkAll2(0)" />
+<input type="button" id="GoAll" value="反选" onclick="checkAll2(2)" />
+
+</body>
+</html>
