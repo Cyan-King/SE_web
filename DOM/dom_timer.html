@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+
+    var timeid;
+
+    function getTime() {
+        var date = new Date();
+        //格式化时间
+        var times = date.toLocaleString();
+        //将时间输入到div窗口中，所以我我们要获取这个节点
+        var oDIVNode = document.getElementById("timeid");
+
+        //输入时间到地div中要用到InnerHTML
+        oDIVNode.innerHTML = times;
+    }
+    
+    function Start1() {
+        timeid = setInterval("getTime()", 1000);
+    }
+
+    function Stop1() {
+        clearInterval(timeid);
+    }
+    
+</script>
+
+<body>
+
+<div id="timeid"></div>
+
+<input type="button" value="Start" onclick="Start1()" />
+<input type="button" value="Stop" onclick="Stop1()" />
+
+</body>
+</html>
