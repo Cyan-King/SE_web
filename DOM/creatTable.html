@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        @import "table.css";
+    </style>
+
+    <script type="text/javascript">
+        function add1() {
+
+            var oTabNode = document.createElement("table");
+
+            var oHNode = document.getElementById("h").value;
+            var oLNode = document.getElementById("l").value;
+
+            for (var x = 0; x < oHNode; x++){
+                //创建表格行数
+                var oTrNode =  oTabNode.insertRow();
+                for (var y = 0; y < oLNode; y++){
+                    var oTdNode = oTrNode.insertCell();
+                    oTdNode.innerHTML = x + ":" + y;
+                }
+            }
+
+            //将table添加进div当中
+            document.getElementsByTagName("div")[0].appendChild(oTabNode);
+
+            //使用disabled方法是按钮只能执行一次
+            document.getElementById("creat").disabled = "true";
+        }
+    </script>
+</head>
+<body>
+行：<input type="text" id="h" />
+列：<input type="text" id="l" />
+<br/>
+<input type="button" id="creat" value="creat" onclick="add1()" />
+<div></div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script type="text/javascript">
+
+
+        function selToLeft() {
+
+            //获取select2标签元素
+            var oSEL2Node = document.getElementById("select2");
+
+            //获取select1标签元素
+            var oSEL1Node = document.getElementById("select1");
+
+            //获取option中的元素,不过我们要获取的是
+            var oOptionNode = oSEL2Node.getElementsByTagName("option");
+
+            //遍历option标签元素，并选中的目标在这里我们使用到了select
+            for (var i = 0; i < oOptionNode.length; i++){
+
+                var op = oOptionNode[i];
+
+                if (op.selected){
+                    //option中的元素添加到select1中
+                    oSEL1Node.appendChild(op);
+                    i--;
+                }
+            }
+        }
+        
+        function allToLeft() {
+
+            //获取select1元素标签
+            var oSEL1Node = document.getElementById("select1");
+
+            //获取select2元素标签
+            var oSEL2Node = document.getElementById("select2");
+
+            //获取option的元素标签
+            var oOptionNode = oSEL2Node.getElementsByTagName("option");
+
+            for (var i = 0; i < oOptionNode.length; i++){
+                var op = oOptionNode[i];
+
+                //option中的元素添加到select1中
+                oSEL1Node.appendChild(op);
+
+                /*
+                * 保持i的值为0，因为每次++之后i的数值在不断给的增加，而我们的长度是不定的变化的所以要保持i为0
+                * 添加移动一个的时候是看不出来的，但是我们添加大量的话就无法达到预期的效果
+                * 每次i++之后数组的长度的都会减一
+                * */
+
+                i--;
+            }
+
+        }
+
+
+        function selToRight() {
+
+            //获取select2标签元素
+            var oSEL2Node = document.getElementById("select2");
+
+            //获取select1标签元素
+            var oSEL1Node = document.getElementById("select1");
+
+            //获取option中的元素,不过我们要获取的是
+            var oOptionNode = oSEL1Node.getElementsByTagName("option");
+
+            //遍历option标签元素，并选中的目标在这里我们使用到了select
+            for (var i = 0; i < oOptionNode.length; i++){
+
+                var op = oOptionNode[i];
+
+                if (op.selected){
+                    oSEL2Node.appendChild(op);
+                    i--;
+                }
+            }
+        }
+
+        function allToRight() {
+
+            //获取select2标签元素
+            var oSEL2Node = document.getElementById("select2");
+
+            //获取select1标签元素
+            var oSEL1Node = document.getElementById("select1");
+
+            //获取option中的元素,不过我们要获取的是
+            var oOptionNode = oSEL1Node.getElementsByTagName("option");
+
+            //遍历option标签元素，并选中的目标在这里我们使用到了select
+            for (var i = 0; i < oOptionNode.length; i++){
+
+                var op = oOptionNode[i];
+
+                oSEL2Node.appendChild(op);
+
+                i--;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div style="float: left;">
+    <div>
+        <select id="select1" multiple="multiple" style="width: 100px; height: 200px">
+            <option>选项一</option>
+            <option>选项二</option>
+            <option>选项三</option>
+            <option>选项四</option>
+            <option>选项五</option>
+            <option>选项六</option>
+            <option>选项七</option>
+            <option>选项八</option>
+            <option>选项九</option>
+            <option>选项十</option>
+        </select>
+    </div>
+    <div>
+        <input type="button" value="选中添加到右边" onclick="selToRight()"/><br/>
+        <input type="button" value="全部选中添加到右边" onclick="allToRight()"/>
+    </div>
+</div>
+
+<div>
+    <div>
+        <select id="select2" multiple="multiple" style="width: 100px; height: 200px">
+            <option>选项十一</option>
+        </select>
+    </div>
+    <div>
+        <input type="button" value="选中添加到右边" onclick="selToLeft()"/><br/>
+        <input type="button" value="全部选中添加到右边" onclick="allToLeft()"/>
+    </div>
+</div>
+
+
+</body>
+</html>

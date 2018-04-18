@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        
+        function add1() {
+
+            //这里我们要创建一个二维数组，这个很重要
+            var arr = new Array(5);
+            arr[0] = ["请选择"];
+            arr[1] = ["丰城","南昌","抚州","北京"];
+            arr[2] = ["旧金山","休斯顿","迈阿密","达拉斯"];
+            arr[3] = ["神川","东京","北海道","关东"];
+            arr[4] = ["罗马","米兰","那不勒斯","都灵"];
+
+            //接下来我们拿到连个select的标签属性
+            var oSEL1Node = document.getElementById("sel1");
+            var oSEL2Node = document.getElementById("sel2");
+
+            //我们获取第一个select下拉框的选了谁
+            var index = oSEL1Node.selectedIndex;
+
+            //通过角标的容器获取相应的城市数组
+            var arrCity = arr[index];
+
+            //清空子菜单的内容
+            oSEL2Node.length = 0;
+
+            for (var x = 0; x < arrCity.length; x++){
+                //在这里我们创建option标签元素
+                var oOptionNode = document.createElement("option");
+
+                //将数组里面的内容方法到option标签里面
+                oOptionNode.innerHTML = arrCity[x];
+
+                //将oOptionNode---option标签方法下拉菜单中
+                oSEL2Node.appendChild(oOptionNode);
+            }
+
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+<select id="sel1" onchange="add1()">
+    <option>--请选择--</option>
+    <option>中国</option>
+    <option>美国</option>
+    <option>日本</option>
+    <option>意大利</option>
+</select>
+<select id="sel2"></select>
+</body>
+</html>

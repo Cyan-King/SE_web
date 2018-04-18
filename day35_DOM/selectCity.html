@@ -27,11 +27,15 @@
 
         //清空角标内容
         oSubSelNode.length = 0;
-        //将数组加载到子菜单中
+
+        //将数组加载到子菜单中oSubSelNode.length = 0;
         for(var x = 0; x < arrCity.length; x++){
+            //创建option元素
             var oOptionNode = document.createElement("option");
+            //将数组内容添加到option里面
             oOptionNode.innerHTML = arrCity[x];
 
+            //再将option添加到oSubSelNode下拉框中
             oSubSelNode.appendChild(oOptionNode);
         }
 
